@@ -1,72 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Gerenciador de Tarefas</title>
 </head>
+
 <body>
     <main class="container">
         <header>
             <h1>Board de tarefas</h1>
         </header>
-         
+
         <section class="formulario">
-                <input type="text" id="input-tarefa" placeholder="Nome da tarefa">
-                <input type="text" id="input-etiqueta" placeholder="Etiqueta">
-                <button id="btn-add">+</button>
+            <input type="text" id="input-tarefa" placeholder="Nome da tarefa" required>
+            <input type="text" id="input-etiqueta" placeholder="Etiqueta" required>
+            <button id="btn-add">+</button>
         </section>
-        
-        <section class="tarefas">
-            <!-- Exemplo de tarefa -->
-             <div class="tarefa">
-                <div class="info">
-                    <p class="titulo">Implementar tela de listagem de tarefas</p>
-                    <div class="detalhes">
-                        <span class="etiqueta">frontend</span>
-                        <span class="data">Criado em: 21/08/2024</span>
-                    </div>
-                </div>
-                <button class="btn-concluir">Concluir</button>
-             </div>
-        </section>
-        <section class="tarefas">
-            <!-- Exemplo de tarefa -->
-             <div class="tarefa">
-                <div class="info">
-                    <p class="titulo">Implementar tela de listagem de tarefas</p>
-                    <div class="detalhes">
-                        <span class="etiqueta">frontend</span>
-                        <span class="data">Criado em: 21/08/2024</span>
-                    </div>
-                </div>
-                <button class="btn-concluir">Concluir</button>
-             </div>
-        </section>
-        <section class="tarefas">
-            <!-- Exemplo de tarefa -->
-             <div class="tarefa">
-                <div class="info">
-                    <p class="titulo">Implementar tela de listagem de tarefas</p>
-                    <div class="detalhes">
-                        <span class="etiqueta">frontend</span>
-                        <span class="data">Criado em: 21/08/2024</span>
-                    </div>
-                </div>
-                <button class="btn-concluir">Concluir</button>
-             </div>
-        </section>
-        
+
+        <section id="task-list" class="tarefas"></section>
+
         <hr class="linha-divisoria">
 
         <footer>
-            <p><span id="contador">1</span> tarefa concluída</p>
+            <p id="task-counter"><span>0</span> tarefa concluída</p>
         </footer>
 
     </main>
 </body>
 <script src="./script.js"></script>
+
 </html>

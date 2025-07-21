@@ -7,12 +7,14 @@
     --bg-segundaria: #FFFFFF;
     /* Cores */
     --cor-principal: #11175E;
-    --cor-segundaria: #1a4700;
+    --cor-segundaria: #001747;
     --cor-terciaria: #B1BACB;
     --cor-quartiaria: #EEEEEE;
+    --cor-task-checked: #8F98A8;
     /* Butão */
-    --bg-btn: #2D70FD;
-    --bg-btn-hover: #2DB0FC;
+    --bg-btn-add: #2D70FD;
+    --bg-btn-add-hover: #2DB0FC;
+    --bg-btn-ccr-hover: #00D8A7;
     --cor-btn: #FFFFFF;
 }
 
@@ -42,8 +44,10 @@ header {
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--cor-principal);
+    white-space: nowrap;
+
 }
 
 .formulario {
@@ -54,22 +58,26 @@ header h1 {
 }
 
 .formulario input {
-    padding: 1rem;
+    font-size: 1rem;
     border-radius: 0.8rem;
     border: 1px solid var(--cor-terciaria);
-    font-size: 1rem;
+    padding: 1rem;
 }
 
 .formulario input:hover {
-    border:  1px solid var(--bg-btn);
+    border: 1px solid var(--bg-btn-add);
     transition-duration: 0.3s;
+}
+
+.formulario input::placeholder {
+    color: var(--cor-terciaria);
 }
 
 .formulario button {
     padding: 0.781rem 0;
     border: none;
     border-radius: 0.25rem;
-    background-color: var(--bg-btn);
+    background-color: var(--bg-btn-add);
     color: var(--cor-btn);
     font-family: var(--font-segundaria);
     font-size: 1.125rem;
@@ -78,13 +86,14 @@ header h1 {
 }
 
 .formulario button:hover {
-    background-color: var(--bg-btn-hover);
+    background-color: var(--bg-btn-add-hover);
     transition-duration: 0.3s;
 }
 
-.tarefas {
-    padding: 0;
-    margin: 0 0 0.375rem 0;
+#task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
 }
 
 .tarefa {
@@ -94,63 +103,84 @@ header h1 {
     padding: 1.5rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+}
+
+.tarefa:hover {
+    border: none;
+    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
 }
 
 .tarefa .titulo {
     font-size: 1rem;
     font-weight: 500;
+    color: var(--cor-segundaria);
     margin-bottom: 1rem;
 }
 
 .tarefa .detalhes {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 1rem;
     font-size: 0.875rem;
     color: var(--cor-terciaria);
 }
 
 .tarefa .etiqueta {
-    border: 1px solid var(--cor-terciaria);
-    padding: 0.25rem 0.5rem;
-    border-radius: 1rem;
     font-size: 0.75rem;
     font-weight: 500;
+    border: 1px solid var(--cor-terciaria);
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem;
+    align-self: self-start;
 }
 
 .tarefa .data {
-    margin: auto 0 auto 0.5rem;
+    margin: auto 0 1rem 0;
+}
+
+div.task-status {
+    text-align: center;
 }
 
 .btn-concluir {
     align-self: flex-start;
     padding: 0.75rem 1.5rem;
-    background-color: var(--bg-btn);
+    background-color: var(--bg-btn-add);
     color: var(--cor-btn);
     border: none;
     border-radius: 0.25rem;
+    cursor: pointer;
 }
 
 .btn-concluir:hover {
-    background-color: var(--bg-btn-hover);
+    background-color: var(--bg-btn-ccr-hover);
     transition-duration: 0.3s;
 }
 
 .linha-divisoria {
-    border: none; /* tira a borda padrão */
-    height: 1px;  /* altura da linha */
+    border: none;
+    /* tira a borda padrão */
+    height: 1px;
+    /* altura da linha */
     background-color: var(--cor-quartiaria);
     margin: 1.5rem 0;
 }
 
-footer {
+footer #task-counter {
     font-family: var(--font-segundaria);
     font-size: 1rem;
     font-weight: 400;
     color: var(--cor-terciaria);
 }
 
+footer #task-counter:hover {
+    color: var(--bg-btn-ccr-hover);
+    transition-duration: 0.3s;
+}
+
+/* Aplicando Responsividade */
 @media (min-width: 768px) {
     body {
         background-color: var(--bg-principal);
@@ -158,15 +188,20 @@ footer {
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        margin: 0;
+        margin: auto;
     }
-    
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
     .container {
         min-width: 650px;
         background-color: var(--bg-segundaria);
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
         padding: 2rem;
         margin: auto;
-        
     }
 
     .formulario {
@@ -179,16 +214,26 @@ footer {
     .formulario input {
         padding: 1rem 1.5rem;
     }
-    
+
     .formulario button {
         padding: 0.781rem 1.2rem;
     }
 
     .tarefa {
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .tarefa .detalhes {
         flex-direction: row;
     }
+
+    .tarefa .data {
+        margin: auto 0;
+    }
+
 
     .btn-concluir {
         align-self: center;
@@ -197,5 +242,4 @@ footer {
     footer {
         text-align: end;
     }
-
 }
