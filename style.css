@@ -181,6 +181,7 @@ footer #task-counter {
     font-size: 1rem;
     font-weight: 400;
     color: var(--cor-terciaria);
+    text-align: end;
 }
 
 footer #task-counter:hover {
@@ -247,7 +248,4 @@ footer #task-counter:hover {
         align-self: center;
     }
 
-    footer {
-        text-align: end;
-    }
 }
